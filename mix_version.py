@@ -15,9 +15,11 @@ drawing_utils = mp.solutions.drawing_utils
 hands = mp_hands.Hands(min_detection_confidence=0.6, min_tracking_confidence=0.6)
 face = mp_face_mesh.FaceMesh(static_image_mode=False, min_tracking_confidence=0.6, min_detection_confidence=0.6)
 
-# setting hand tracking point, line and color = (B, R, G)
+# setting face, hands point and line style 
 hand_landmark_style = drawing_utils.DrawingSpec(color=(0, 0, 255), thickness=3)
 hand_connect_style = drawing_utils.DrawingSpec(color=(0, 255, 0), thickness=3)
+face_landmark_style = drawing_utils.DrawingSpec(color=(0, 0, 255), thickness=1)
+face_connect_style = drawing_utils.DrawingSpec(color=(255, 255, 255), thickness=3)
 
 pTime = 0
 cTime = 0
@@ -51,7 +53,7 @@ while True:
         if face_result.multi_face_landmarks:
             for i in face_result.multi_face_landmarks:
                 # print(i.landmark[0].y*480)
-                drawing_utils.draw_landmarks(img, i, mp_face_mesh.FACEMESH_CONTOURS, landmark_drawing_spec=drawing_utils.DrawingSpec(color=(0, 0, 255), circle_radius=1))
+                drawing_utils.draw_landmarks(img, i, mp_face_mesh.FACEMESH_CONTOURS, face_landmark_style, )
 
         # FPS setting
         # cTime = time.time()
