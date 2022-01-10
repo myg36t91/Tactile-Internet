@@ -1,7 +1,7 @@
 import cv2
 import mediapipe as mp
 import time
-# import control
+import control
 
 # use cv2 call webcam function then store variable. preset is 0.
 cap = cv2.VideoCapture(0)
@@ -66,7 +66,7 @@ while True:
                 else:
                     fingers.append(0)
             total = fingers.count(1)
-            # control.led(total)
+            control.led(total)
             if total == 0:
                 cv2.rectangle(img, (20, 300), (270, 425), (0, 255, 0),)
                 cv2.putText(img, "0", (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
