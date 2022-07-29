@@ -1,5 +1,4 @@
 # Tactile Internet
-https://hackmd.io/@myg36t91/tactile_internet
 
 ### About Drone
 - Tello Talent 四軸飛行器 <p>
